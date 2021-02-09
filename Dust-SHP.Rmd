@@ -1,0 +1,9 @@
+---
+title: "Kandakji et al. - Identifying and Characterizing dust point sources in the southwestern United States using remote sensing and GIS"
+author: "David Failing"
+date: "2/9/2021"
+output: pdf_document
+---
+
+## Introduction
+
