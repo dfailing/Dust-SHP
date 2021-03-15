@@ -1,0 +1,7 @@
+"MODIS_Terra_product","MODIS_Aqua_product","Band_number","Band_name","Resolution","Description"
+"MOD09GA","MYD09GA","1","Red","500 m","Terra/Aqua Surface Reflectance Daily"
+"MOD09GA","MYD09GA","3","Blue","500 m","Terra/Aqua Surface Reflectance Daily"
+"MOD09GA","MYD09GA","4","Green","500 m","Terra/Aqua Surface Reflectance Daily"
+"MOD21KM","MYD21KM","31","Thermal","1 km","Terra/Aqua Surface Radiance Daily"
+"MOD21KM","MYD21KM","32","Thermal","1 km","Terra/Aqua Surface Radiance Daily"
+"MOD03","MYD03",NA,NA,NA,"Geolocation files for MOD21KM and MYD21KM"

@@ -1,0 +1,45 @@
+"Geomorphology_class","Subregion","Area_km2","Area_pct","Dust_src_pts_n","Dust_src_pts_pct","Dust_Emission_Ratio_DER","DER_comp"
+"Wet Lake","Study Area",290.4,0.1,1,0.1,0.98,NA
+"Wet Lake","Great Plains",232.6,0.1,1,0.1,1.23,1
+"Wet Lake","Southern High Plains",0,0,0,0,0,0
+"Wet Lake","Chihuahuan Desert",39.6,0,0,0,0,0
+"Ephemeral lake","Study Area",4955.5,1.1,100,6.6,5.77,NA
+"Ephemeral lake","Great Plains",859,0.2,39,2.6,12.97,13
+"Ephemeral lake","Southern High Plains",832.7,0.2,39,2.6,13.38,13
+"Ephemeral lake","Chihuahuan Desert",3461.8,0.8,58,3.8,4.79,4.75
+"High relief alluvial, incised, unarmored","Study Area",194.2,0,0,0,0,NA
+"High relief alluvial, incised, unarmored","Great Plains",0,0,0,0,0,0
+"High relief alluvial, incised, unarmored","Southern High Plains",0,0,0,0,0,0
+"High relief alluvial, incised, unarmored","Chihuahuan Desert",63.4,0,0,0,0,0
+"High relief alluvial, unincised, unarmored","Study Area",50869.4,11.8,64,4.2,0.36,NA
+"High relief alluvial, unincised, unarmored","Great Plains",1387,0.3,0,0,0,0
+"High relief alluvial, unincised, unarmored","Southern High Plains",0.3,0,0,0,0,0
+"High relief alluvial, unincised, unarmored","Chihuahuan Desert",27404.6,6.4,27,1.8,0.28,0.28125
+"Low relief alluvial, incised, unarmored","Study Area",105321.9,24.4,124,8.2,0.34,NA
+"Low relief alluvial, incised, unarmored","Great Plains",97517.7,22.6,122,8.1,0.36,0.358407079646018
+"Low relief alluvial, incised, unarmored","Southern High Plains",1179.5,0.3,2,0.1,0.48,0.333333333333333
+"Low relief alluvial, incised, unarmored","Chihuahuan Desert",661,0.2,2,0.1,0.86,0.5
+"Low relief alluvial, unincised, unarmored","Study Area",53325.5,12.4,111,7.4,0.6,NA
+"Low relief alluvial, unincised, unarmored","Great Plains",15848.5,3.7,73,4.8,1.32,1.2972972972973
+"Low relief alluvial, unincised, unarmored","Southern High Plains",4664.6,1.1,54,3.6,3.31,3.27272727272727
+"Low relief alluvial, unincised, unarmored","Chihuahuan Desert",18303,4.2,28,1.9,0.44,0.452380952380952
+"Stony surfaces","Study Area",109.6,0,0,0,0,NA
+"Stony surfaces","Great Plains",109.6,0,0,0,0,0
+"Stony surfaces","Southern High Plains",0,0,0,0,0,0
+"Stony surfaces","Chihuahuan Desert",0,0,0,0,0,0
+"Aeolian sand sheet","Study Area",126130.1,29.3,917,60.8,2.08,NA
+"Aeolian sand sheet","Great Plains",117479.9,27.2,849,56.3,2.17,2.06985294117647
+"Aeolian sand sheet","Southern High Plains",46583.8,10.8,756,50.1,4.64,4.63888888888889
+"Aeolian sand sheet","Chihuahuan Desert",5614,1.3,17,1.1,0.87,0.846153846153846
+"Aeolian sand dune","Study Area",23740.5,5.5,108,7.2,1.3,NA
+"Aeolian sand dune","Great Plains",15882.3,3.7,54,3.6,0.97,0.972972972972973
+"Aeolian sand dune","Southern High Plains",4228.2,1,39,2.6,2.64,2.6
+"Aeolian sand dune","Chihuahuan Desert",2714.6,0.6,47,3.1,4.95,5.16666666666667
+"Loess","Study Area",50308.9,11.7,75,5,0.43,NA
+"Loess","Great Plains",50308.9,11.7,75,5,0.43,0.427350427350427
+"Loess","Southern High Plains",20112.5,4.7,57,3.8,0.81,0.808510638297872
+"Loess","Chihuahuan Desert",0,0,0,0,0,0
+"Low emission surfaces","Study Area",15946.7,3.7,9,0.5,0.14,NA
+"Low emission surfaces","Great Plains",186.7,0,0,0,0,0
+"Low emission surfaces","Southern High Plains",18.5,0,0,0,0,0
+"Low emission surfaces","Chihuahuan Desert",8059.8,1.9,9,0.6,0.28,0.315789473684211

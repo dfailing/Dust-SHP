@@ -1,0 +1,33 @@
+"Land_cover_type","Subregion","Area_km2","Area_pct","Dust_src_pts_n","Dust_src_pts_pct","Dust_Emission_Ratio_DER","DER_comp"
+"Open water","Study Area",861.4,0.2,9,0.6,2.82,NA
+"Open water","Great Plains",734.7,0.2,8,0.5,2.94,2.5
+"Open water","Southern High Plains",172,0,6,0.4,9.4,NA
+"Open water","Chihuahuan Desert",35.9,0,0,0,0,NA
+"Built environment","Study Area",12492.6,3.1,69,4.6,1.49,NA
+"Built environment","Great Plains",10692.8,2.6,66,4.4,1.66,1.69230769230769
+"Built environment","Southern High Plains",4048.2,1,47,3.1,3.13,3.1
+"Built environment","Chihuahuan Desert",1123.2,0.3,3,0.2,0.72,0.666666666666667
+"Barren land (bare sand & clay)","Study Area",3636.3,0.9,91,6,6.75,NA
+"Barren land (bare sand & clay)","Great Plains",856.7,0.2,9,0.6,2.83,3
+"Barren land (bare sand & clay)","Southern High Plains",101.3,0,6,0.4,15.97,NA
+"Barren land (bare sand & clay)","Chihuahuan Desert",2451.6,0.6,80,5.3,8.8,8.83333333333333
+"Forest","Study Area",8925.6,2.2,4,0.3,0.12,NA
+"Forest","Great Plains",3373.1,0.8,4,0.3,0.32,0.375
+"Forest","Southern High Plains",91,0,0,0,0,NA
+"Forest","Chihuahuan Desert",65.5,0,0,0,0,NA
+"Scrub/shrubland","Study Area",167940.3,41.3,373,24.7,0.6,NA
+"Scrub/shrubland","Great Plains",75478.9,18.5,234,15.5,0.84,0.837837837837838
+"Scrub/shrubland","Southern High Plains",12531.3,3.1,151,10,3.25,3.2258064516129
+"Scrub/shrubland","Chihuahuan Desert",44868.6,11,86,5.7,0.55,0.518181818181818
+"Grassland","Study Area",126723.4,31.1,301,20,0.64,NA
+"Grassland","Great Plains",117093.4,28.8,280,18.6,0.64,0.645833333333333
+"Grassland","Southern High Plains",27595.1,6.8,196,13,1.92,1.91176470588235
+"Grassland","Chihuahuan Desert",3017.9,5.7,17,1.1,1.6,0.192982456140351
+"Cultivated crop","Study Area",84848.5,20.9,654,43.4,2.08,NA
+"Cultivated crop","Great Plains",83013.7,20.4,650,43.1,2.11,2.11274509803922
+"Cultivated crop","Southern High Plains",30804.6,7.6,535,35.5,4.68,4.67105263157895
+"Cultivated crop","Chihuahuan Desert",994.8,0.2,1,0.1,0.27,0.5
+"Wetland","Study Area",1470.4,0.4,7,0.5,1.28,NA
+"Wetland","Great Plains",1163.9,0.3,7,0.5,1.62,1.66666666666667
+"Wetland","Southern High Plains",308.8,0.1,6,0.4,5.24,4
+"Wetland","Chihuahuan Desert",64.4,0,0,0,0,NA
