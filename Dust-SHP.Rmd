@@ -36,21 +36,21 @@ library(riem)
 # Figures
 <!-- ![alt text here](path to image) --->
 
-![Study domain including key geographic regions discussed within the study.](Figures/Fig-1.jpg)
+![Study domain including key geographic regions discussed within the study.](figures/Fig-1.jpg)
 
-![Land-cover map of the study domain for the year 2011. Data from Homer et al. (2015).](Figures/Fig-2.jpg)
+![Land-cover map of the study domain for the year 2011. Data from Homer et al. (2015).](figures/Fig-2.jpg)
 
-![Geomorphology map of the domain, using the categories of Bullard et al. (2011) relating geomorphology to dust emission.](Figures/Fig-3.jpg)
+![Geomorphology map of the domain, using the categories of Bullard et al. (2011) relating geomorphology to dust emission.](figures/Fig-3.jpg)
 
-![MODIS true color images (left) and their associated BTD images (right), for the days February 24, 2007 (top), and January 22, 2012 (bottom). The black color in the BTD images indicates dust.](Figures/Fig-4.jpg)
+![MODIS true color images (left) and their associated BTD images (right), for the days February 24, 2007 (top), and January 22, 2012 (bottom). The black color in the BTD images indicates dust.](figures/Fig-4.jpg)
 
-![Dust source points identified for the dust event on February 24, 2007.](Figures/Fig-5.jpg)
+![Dust source points identified for the dust event on February 24, 2007.](figures/Fig-5.jpg)
 
-![Mean center (geographic center) and directional distribution (Standard Deviation Ellipse) of all the dust points.](Figures/Fig-6.jpg)
+![Mean center (geographic center) and directional distribution (Standard Deviation Ellipse) of all the dust points.](figures/Fig-6.jpg)
 
-![Identified dust source points (red dots) distributed over the geomorphic classes.](Figures/Fig-7.jpg)
+![Identified dust source points (red dots) distributed over the geomorphic classes.](figures/Fig-7.jpg)
 
-![Identified dust source points distributed over the land-cover types of the study area.](Figures/Fig-8.jpg)
+![Identified dust source points distributed over the land-cover types of the study area.](figures/Fig-8.jpg)
 
 
 \newpage
@@ -62,7 +62,7 @@ library(riem)
 # Suppress code because this:
 # The mutate contains str_replace(.$"Long., Lat.", "−", 
 # last of which is an unprintable character (Unicode minus)
-table_1 <- readxl::read_excel("Figures/Table-1.xlsx")
+table_1 <- readxl::read_excel("figures/Table-1.xlsx")
 
 table_1 <- table_1 %>%
   rename(LongLat = 'Long., Lat.') %>% 
@@ -82,19 +82,15 @@ table_1 <- cbind(table_1, first_avail)
 rm(first_avail)
 
 ## Write final table to CSV for later loading
-write.csv(table_1, file = "Data/table_1_cleaned.csv", 
+write.csv(table_1, file = "data/table_1_cleaned.csv", 
           row.names = FALSE)
-```
-
-```{r, message = FALSE, warning = FALSE}
-table_1
 ```
 
 \newpage
 ## Table 2. Summary of MODIS products used in the study.
 
 ```{r, message = FALSE, warning = FALSE}
-table_2 <- readxl::read_excel("Figures/Table-2.xlsx")
+table_2 <- readxl::read_excel("figures/Table-2.xlsx")
 
 table_2 <- table_2 %>%
   na_if(., "N/A") %>%
@@ -105,19 +101,15 @@ table_2 <- table_2 %>%
            regex = "Band ([[:digit:]]+) \\((.+)\\)", remove = TRUE)
 
 ## Write final table to CSV for later loading
-write.csv(table_2, file = "Data/table_2_cleaned.csv", 
+write.csv(table_2, file = "data/table_2_cleaned.csv", 
           row.names = FALSE)
-```
-
-```{r, message = FALSE, warning = FALSE}
-table_2
 ```
 
 \newpage
 ## Table 3. Summary of dust emission analysis by geomorphic class.
 
 ```{r, message = FALSE, warning = FALSE}
-table_3 <- readxl::read_excel("Figures/Table-3.xlsx")
+table_3 <- readxl::read_excel("figures/Table-3.xlsx")
 
 table_3 <- table_3 %>% 
   setNames(c("Geomorphology_class", "Area_km2", "Area_pct",
@@ -137,19 +129,15 @@ table_3 <- table_3 %>%
   mutate(DER_comp = ifelse(Subregion == "Study Area", NA, DER_comp))
 
 ## Write final table to CSV for later loading
-write.csv(table_3, file = "Data/table_3_cleaned.csv", 
+write.csv(table_3, file = "data/table_3_cleaned.csv", 
           row.names = FALSE)
-```
-
-```{r, message = FALSE, warning = FALSE}
-table_3
 ```
 
 \newpage
 ## Table 4. Summary of dust emission analysis by land cover type.
 
 ```{r, message = FALSE, warning = FALSE}
-table_4 <- readxl::read_excel("Figures/Table-4.xlsx")
+table_4 <- readxl::read_excel("figures/Table-4.xlsx")
 
 table_4 <- table_4 %>% 
   setNames(c("Land_cover_type", "Area_km2", "Area_pct",
@@ -171,12 +159,8 @@ table_4 <- table_4 %>%
   mutate(DER_comp = ifelse(Subregion == "Study Area", NA, DER_comp))
 
 ## Write final table to CSV for later loading
-write.csv(table_4, file = "Data/table_4_cleaned.csv", 
+write.csv(table_4, file = "data/table_4_cleaned.csv", 
           row.names = FALSE)
-```
-
-```{r, message = FALSE, warning = FALSE}
-table_4
 ```
 
 # Methodology
@@ -199,13 +183,15 @@ We can use the package `pmetar` in R to download and parse current METAR reports
 
 ```{r, message = FALSE, warning = FALSE}
 # Print the most recent weather for all station codes in Table 1.
-pmetar::metar_get(table_1$Station_code)
+# NOTE: pmetar appears to have changed to require only a lone, not a vector, input here
+for (Station in table_1$Station_code) {
+  print(pmetar::metar_get(Station))
+}
 
 # Get the location information for stations in Table 1
+# NOTE: Includes Elevation (m), where `table_1` excludes it.
 pmetar::metar_location(table_1$Station_code)
 ```
-
-Interesting. Note that a *K* is prepended to all three-letter station codes in my list, since *K* was given to contiguous US by ICAO.
 
 ```{r, message = FALSE, warning = FALSE}
 # LAA says start is 1994-12-31 18:00:00-06 per
@@ -215,8 +201,6 @@ Interesting. Note that a *K* is prepended to all three-letter station codes in m
 # LTS in the same tool says 2001-01-01 missing but ok after
 # AXS has a first date 2005-06-01 
 # ELK has a first date 2014-11-06 08:15:00-06
-
-paste0("METAR_", table_1$Station_code[-c(1,7:9)])
 
 for(i in table_1$Station_code[-c(1,7:9)]){
    assign(paste0("METAR_", i),
@@ -257,17 +241,42 @@ METAR_KLBB %>% filter(grepl("2016-12-31", as.character(valid)))
 METAR_KLBB[,c("valid", "vsby", "wxcodes", "metar")] %>% filter(grepl("BLDU", wxcodes))
 ```
 
-"Dusty days were determined following the procedure by Lee et al. (2012). A dust event was recorded if the visibility in one or more stations was less than 3 mi (~5km) for at least 1 h and the present weather code was indicating dust, or the weather code was dust for a minimum of 2h regardless of visibility."
+## 3.3 DATA PULL
+```{r}
+# Download METAR data using package `riem`
+# Export METAR data to .csv
+# TO DO LATER: Delete downloaded METAR data from R Environment. We'll read it in one at a time later.
+# NOTE: date_end should be the day AFTER the last day on which you want observations
+# DOCUMENTATION IS AT https://docs.ropensci.org/riem/reference/riem_measures.html
 
-```{r, message = FALSE, warning = FALSE}
-# Key functions
+for(i in 1:nrow(table_1)){
+  filename <- paste0("METAR_", table_1[i, "Station_code"])
+  assign(filename,
+         do.call(riem::riem_measures,
+                 list(station = table_1[i, "Station_code"], 
+                      date_start = table_1[i, "first_avail"],
+                      date_end = "2017-01-01")) )
+  do.call(write.csv, list(x = as.name(filename), 
+                          file = paste0("data/", filename,".csv"),
+                          row.names = FALSE))
+rm(list = filename)
+}
 
-# pmetar::metar_visibility(CHAR, metric = FALSE) # Visibility in miles
-# We can read the visibility from a single report, metric = FALSE gives miles.
+rm(filename, i)
 
-# pmetar::metar_wx_codes() doesn't do quite what we want
 
+# OLD
+# Download METAR data from API.
+# for(i in 1:2){
+#    assign(paste0("METAR_", table_1[i, "Station_code"], "_PMETAR"),
+#           do.call(pmetar::metar_get_historical,
+#                   list(table_1[i, "Station_code"], start_date = table_1[i, "first_avail"],
+#                        end_date = "2016-12-31",
+#                        from = "iastate")) )
+# }
 ```
+
+"Dusty days were determined following the procedure by Lee et al. (2012). A dust event was recorded if the visibility in one or more stations was less than 3 mi (~5km) for at least 1 h and the present weather code was indicating dust, or the weather code was dust for a minimum of 2h regardless of visibility."
 
 "The METAR present weather codes (https://www.weather.gov/media/wrh/mesowest/metar_decode_key.pdf) that were considered as dust are: DS, DU, BLDU, DRSA, DS, PO, SA, SS, VCBLDU, VCDS, VCPO, and VCSS. Using the 3 mi visibility criterion or the 2 h dust reporting increase the probability that blowing dust is dense enough to be detected by the satellite imagery (Mahowald et al., 2003; She et al., 2018)"
 
@@ -288,7 +297,7 @@ Alright, some of the explanation of what METAR data looks like is at https://en.
 # https://www.weather.gov/media/wrh/mesowest/metar_decode_key.pdf
 
 # You can use locate_areas to determine corners. Output is a list of vectors.
-# out <- tabulizer::locate_areas("Figures/metar_decode_key.pdf", c(1, 1, 2, 2, 3, 3))
+# out <- tabulizer::locate_areas("figures/z_metar_decode_key.pdf", c(1, 1, 2, 2, 3, 3))
 
 ## Save the corner points in a list
 corners <- list(c(top = 0, left = 0, bottom = 1000, right = 1000), #p1
@@ -299,7 +308,7 @@ corners <- list(c(top = 0, left = 0, bottom = 1000, right = 1000), #p1
                 c(top = 16, left = 390, bottom = 486, right = 770)) #p3
 
 # Use tabulizer::extract_tables to pull tables from the PDF
-out <-tabulizer::extract_tables(file = "Data/metar_decode_key.pdf", 
+out <-tabulizer::extract_tables(file = "data/z_metar_decode_key.pdf", 
                                 pages = c(1,1,2,2,3,3),
                                 area = corners[1:6],
                                 method = "lattice")
@@ -336,7 +345,7 @@ metar_abbrev <- do.call(rbind, lapply( paste0("sec_", 1:6) , get)) %>%
   arrange(Abbrev)
 
 ## Write final table to CSV for later loading
-write.csv(metar_abbrev, file = "Data/METAR-Abbreviations.csv", 
+write.csv(metar_abbrev, file = "data/METAR-Abbreviations.csv", 
           row.names = FALSE)
 
 ## Clean up input files, leaving data.frames only
@@ -354,7 +363,32 @@ metar_dust_df <- metar_abbrev %>%
                        "VC", "BL", "DU", "VC", "DS", "VC", "PO", "VC", "SS") )
 ```
 
+## 3.3 DATA FILTERING
 
+```{r}
+# A list of acceptable dust abbreviations from the paper
+metar_dust_abbrev <- sort(c("DS", "DU", "BLDU", "DRSA", "DS", "PO", "SA", "SS",
+                       "VCBLDU", "VCDS", "VCPO", "VCSS"))
+metar_dust_regex <- paste(metar_dust_abbrev, collapse = "|")
+
+# List of files for further analysis
+METAR_files <- list.files(path = "data/", 
+                          pattern = "METAR_.{3}\\.csv", 
+                          full.names = TRUE)
+
+# Filter the data on entries with dust codes.
+# GREP isn't great for this - TSSN is one wxcode that shows up w/o dust.
+for(file in METAR_files){ 
+  METAR_data <- read.csv(file) %>%
+    subset(grepl(metar_dust_regex, wxcodes))
+  write.csv(METAR_data, gsub("\\.csv", "_filtered\\.csv", file))
+}
+rm(METAR_data, file) # Clean up after looping
+
+# Clean up at the end of the block
+rm(metar_dust_abbrev, metar_dust_regex, METAR_files)
+
+```
 
 ## 3.4 MODIS data collection
 
