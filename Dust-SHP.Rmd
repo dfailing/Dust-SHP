@@ -234,7 +234,7 @@ METAR_KLBB <- riem::riem_measures(station = "KLBB", date_start = "2001-01-01", d
 METAR_KLBB_03_15 <- METAR_KLBB %>% 
   filter(grepl("2001-03-15", as.character(valid)))
 
-View(METAR_KLBB_03_15[18:22,c("wxcodes", "metar")])# Rows showing discrepancy
+# View(METAR_KLBB_03_15[18:22,c("wxcodes", "metar")])# Rows showing discrepancy
 
 METAR_KLBB %>% filter(grepl("2016-12-31", as.character(valid)))
 
@@ -339,8 +339,6 @@ sec_6 <- as.data.frame(out[[6]]) %>%
   setNames(c("Abbrev", "Def"))
 
 ## Combining sections into a single data frame
-metar_abbrev <- rbind(as.name(paste0("sec_", 1:6)))
-
 metar_abbrev <- do.call(rbind, lapply( paste0("sec_", 1:6) , get)) %>%
   arrange(Abbrev)
 
